@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Retrieve data</title>
+</head>
+<body>
+<center>
+    <h2>Enter name of user to get information</h2>
+    <input type="text" id="user" required="required"><br>
+    <button type="button" onclick="getdata();">Get</button>
+</center>
+<center>
+    <p>Name: <strong id="name"></strong></p>
+    <p>Gender: <strong id="gender"></strong></p>
+    <p>Country: <strong id="country"></strong></p>
+</center>
+
+
+
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+ 
+ var firebaseConfig = {
+    apiKey: "AIzaSyA4JjdUI3zs4m0fPbJjWqThqsYYLJt4f4E",
+    authDomain: "policeapp-8293d.firebaseapp.com",
+    databaseURL: "https://policeapp-8293d-default-rtdb.firebaseio.com",
+    projectId: "policeapp-8293d",
+    storageBucket: "policeapp-8293d.appspot.com",
+    messagingSenderId: "1053485411572",
+    appId: "1:1053485411572:web:fef4c2289567dc417dc2a1",
+    
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  
+</script>
+<script type="text/javascript" src="Read.js"></script>
+</body>
+</html>

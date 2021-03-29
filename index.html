@@ -1,0 +1,88 @@
+<html>
+    <body>
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+
+<script>
+ 
+  var firebaseConfig = {
+    apiKey: "AIzaSyA4JjdUI3zs4m0fPbJjWqThqsYYLJt4f4E",
+    authDomain: "policeapp-8293d.firebaseapp.com",
+    databaseURL: "https://policeapp-8293d-default-rtdb.firebaseio.com",
+    projectId: "policeapp-8293d",
+    storageBucket: "policeapp-8293d.appspot.com",
+    messagingSenderId: "1053485411572",
+    appId: "1:1053485411572:web:fef4c2289567dc417dc2a1",
+    measurementId: "G-XXQ8DK4N0Y"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  
+  
+  var SrNo=0;
+
+  function addItemsToList(name,age,gender,address,crimetype){
+      var ul=document.getElementById('list');
+      var header=document.createElement('h2');
+
+
+      var _name=document.createElement('li');  
+      var _age=document.createElement('li');
+      var _address=document.createElement('li');
+      var _crimetype=document.createElement('li');
+      var _gender=document.createElement('li');
+
+      header.innerHTML="Sr.No : "+(++SrNo);
+      _name.innerHTML='Name : '+name;
+      _age.innerHTML='Age : '+age;
+      _gender.innerHTML="Gender : "+gender;
+      _address.innerHTML='Address : '+address;
+      _crimetype.innerHTML="Crime Type : "+crimetype;
+
+      ul.appendChild(header);
+      ul.appendChild(_name);
+      ul.appendChild(_age);
+      ul.appendChild(_gender);
+      ul.appendChild(_address);
+      ul.appendChild(_crimetype);
+
+  }
+
+function FetchData()
+{
+    var rootRef = firebase.database().ref();
+    rootRef.once("value").then(function(snapshot){
+    var key = snapshot.key; // null
+    var childKey = snapshot.child("Users").key; // "ada"
+  });
+
+
+
+    //firebase.database().ref('Users').once('value',function(snaphot){
+      //  snaphot.forEach(
+        //    function(ChildSnapshot){
+          //      let name=ChildSnapshot.val().name;
+            //    let age=ChildSnapshot.val().age;
+              //  let gen=ChildSnapshot.val().gender;
+                //let add=ChildSnapshot.val().country;
+                //let crm=ChildSnapshot.val().crimetype;
+             //   addItemsToList(name,age,gen,add,crm);
+            //}
+        //);
+   // }); 
+}
+
+
+
+window.addEventListener('load', (event) => {
+    FetchData();
+    
+});
+</script>
+        <ul>
+                <li>Name:</li>
+            </ul>
+        </body>
+    </html>
